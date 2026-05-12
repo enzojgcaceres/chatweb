@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* ── Kanguro Design Tokens ── */
+    --cream: #faf6f0;
+    --cream-dark: #f0e8d8;
+    --amber: #c8893a;
+    --amber-light: #e8a94a;
+    --amber-pale: #f5e6c8;
+    --warm-brown: #3d2b1a;
+    --warm-brown-light: #6b4c2e;
+    --charcoal: #1a1510;
+    --muted: #8a7560;
+    --white: #ffffff;
+
+    /* ── Typography ── */
+    --font-display: var(--font-cormorant);
+    --font-body: var(--font-dm-sans);
+
+    /* ── Spacing ── */
+    --section-pad: clamp(5rem, 10vw, 9rem);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--charcoal);
+    color: var(--cream);
+    font-family: var(--font-body), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+}
+
+/* ── Liquid Ether container ── */
+.liquid-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* ── Glassmorphism card ── */
+.glass-card {
+  background: rgba(250, 246, 240, 0.06);
+  border: 1px solid rgba(200, 137, 58, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ── Fade-up animation ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.fade-up-1 { animation-delay: 0.1s; }
+.fade-up-2 { animation-delay: 0.25s; }
+.fade-up-3 { animation-delay: 0.4s; }
+.fade-up-4 { animation-delay: 0.55s; }
+.fade-up-5 { animation-delay: 0.7s; }
+
+/* ── Horizontal rule ornament ── */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--amber);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.ornament::before,
+.ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  opacity: 0.5;
+}
+
+/* ── Amber button ── */
+.btn-amber {
+  background: linear-gradient(135deg, var(--amber) 0%, var(--amber-light) 100%);
+  color: var(--charcoal);
+  font-family: var(--font-body), sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-amber::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0);
+  transition: background 0.3s ease;
+}
+
+.btn-amber:hover::after {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-amber:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(200, 137, 58, 0.35);
+}
+
+/* ── Ghost button ── */
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  font-family: var(--font-body), sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.5rem;
+  border: 1px solid rgba(250, 246, 240, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+/* ── Plan card ── */
+.plan-card {
+  background: rgba(250, 246, 240, 0.04);
+  border: 1px solid rgba(200, 137, 58, 0.15);
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.plan-card:hover {
+  background: rgba(250, 246, 240, 0.08);
+  border-color: rgba(200, 137, 58, 0.4);
+  transform: translateY(-6px);
+}
+
+.plan-card.featured {
+  background: linear-gradient(135deg, rgba(200, 137, 58, 0.15) 0%, rgba(232, 169, 74, 0.08) 100%);
+  border-color: rgba(200, 137, 58, 0.5);
+}
+
+.plan-card.featured::before {
+  content: "Most Popular";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--amber), var(--amber-light));
+  color: var(--charcoal);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 1.2rem;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--charcoal); }
+::-webkit-scrollbar-thumb { background: var(--amber); opacity: 0.5; }

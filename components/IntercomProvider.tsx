@@ -8,7 +8,7 @@ import { useEffect } from "react";
 // For anonymous visitors: Intercom stores conversation in browser cookie.
 // No user identity data is sent — perfect for demo/prospect websites.
 // ─────────────────────────────────────────────────────────────────────────────
-const INTERCOM_APP_ID = "YOUR_APP_ID"; // 🔑 Replace this
+const INTERCOM_APP_ID = "vb9i346o"; // 🔑 Replace this
 
 declare global {
   interface Window {

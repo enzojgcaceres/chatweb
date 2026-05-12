@@ -61,11 +61,15 @@ export default function LiquidEther({ className = "" }: LiquidEtherProps) {
       //  const colorC = new Color("#2e2e2e"); // gris oscuro sutil
       //  const colorD = new Color("#141414"); // negro cálido
 
-      const colorA = new Color("#f5f0e8"); // blanco cálido
-      const colorB = new Color("#e8e0d0"); // crema suave
-      const colorC = new Color("#d4c8b0"); // beige tenue
-      const colorD = new Color("#ede5d5"); // lino claro
+      // const colorA = new Color("#f5f0e8"); // blanco cálido
+      // const colorB = new Color("#e8e0d0"); // crema suave
+      // const colorC = new Color("#d4c8b0"); // beige tenue
+      // const colorD = new Color("#ede5d5"); // lino claro
 
+      const colorA = new Color("#f0e6ff"); // lavanda muy suave
+      const colorB = new Color("#ffd6f0"); // rosa pastel
+      const colorC = new Color("#c8f0ff"); // celeste bebé
+      const colorD = new Color("#e8f9d4"); // verde menta claro
       
         const vertex = `
           attribute vec2 uv;
